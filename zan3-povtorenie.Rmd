@@ -1,0 +1,35 @@
+---
+title: "Занятие 3 повторение"
+output: html_notebook
+---
+
+# Повторение 
+
+## Индексирование списков, массивов, матриц 
+
+### Пример 1
+
+Дано именованный вектор `vec1` и `vec2` с другими именами. Нужно, чтобы имена у `vec2`  и `vec3` были как `vec1`
+
+```{r}
+
+vec1 <- c(янв=30, фев=30, март=40)
+vec2 <- seq(20,50,length.out = 3)
+names(vec2) <- c("jan","feb","mar")
+vec3 <- seq(20,50,along.with = vec1)
+print(vec1)
+print(vec2)
+vec3
+```
+Решение:
+
+```{r example 1 solution}
+names(vec3) <- names(vec2) <- names(vec1)
+cat("vec1")
+vec1
+cat("vec2")
+vec2 
+cat("vec3")
+vec3 
+```
+

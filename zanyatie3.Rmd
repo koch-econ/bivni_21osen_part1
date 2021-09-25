@@ -1,19 +1,29 @@
 ---
 title: "Занятие 3"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  word_document: default
 ---
 
 <!-- Заголовок выше  на YAML --> 
 
+date: `r Sys.Date()`
+
+
+
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
-```{r}
-head(cars)
+Код вставляется и выполняется 
+
+```{r first rows of cars}
+head(cars,4)
 ```
 
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
 
-```{r}
+```{r cars plot}
 plot(cars)
 ```
 
