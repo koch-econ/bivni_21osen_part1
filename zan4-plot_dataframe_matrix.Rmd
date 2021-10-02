@@ -1,0 +1,14 @@
+---
+title: "Матрицы и dataframe"
+output: html_notebook
+---
+
+
+
+## Простые графики `plot()`
+
+
+Старая лекция по простым графикам[Rpubs](https://rpubs.com/ikochergin/59360)
+
+
+
