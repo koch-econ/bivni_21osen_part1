@@ -31,7 +31,18 @@ plot(x=cars$speed,y=cars$dist,xlab = "speed (mph)",ylab = "тормозной п
 ```{r myplot2 , fig.dim=c(3,4)}
 plot(dist~speed, data=cars,xlab = "speed (mph)",ylab = "тормозной путь",col=3,pch=21,bg="cyan",cex=2.5 )
 ```
-abline
+* * *
+
+Где можно узнать про символы, для рисования точек?
+
+Цвета?
+
+
+
+
+
+
+#### abline
 
 
 ```{r myplot3 , fig.dim=c(3,4)}
