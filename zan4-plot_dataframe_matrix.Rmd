@@ -1,14 +1,107 @@
 ---
 title: "Матрицы и dataframe"
-output: html_notebook
+output:
+  word_document: default
+  html_notebook: default
 ---
 
 
 
 ## Простые графики `plot()`
 
+Виды графиков
+
+* plot() - базовая графика
+* ggplot2 -- уровня публикаций 
+* plotly 
+
+
 
 Старая лекция по простым графикам[Rpubs](https://rpubs.com/ikochergin/59360)
 
+```{r}
+curve(sin(x) , from = -pi*1.5 , to=pi*1.5,n=200,type = "l",lty=3,bg="cyan")
+```
+```{r}
+head(cars)
+```
+```{r}
+plot(x=cars$speed,y=cars$dist,xlab = "speed (mph)",ylab = "тормозной путь",col=3 )
+```
+```{r myplot2 , fig.dim=c(3,4)}
+plot(dist~speed, data=cars,xlab = "speed (mph)",ylab = "тормозной путь",col=3,pch=21,bg="cyan",cex=2.5 )
+```
+abline
 
 
+```{r myplot3 , fig.dim=c(3,4)}
+plot(dist~speed, data=cars,xlab = "speed (mph)",ylab = "тормозной путь",col=3,pch=21,bg="cyan",cex=1.5 )
+abline(h=40,col="red" ) # гориз
+abline(v=15,col="pink" ) # верт
+abline(a=20,b=3,col="pink" ) # накл
+```
+```{r}
+model1 <- lm(dist~speed,data=cars)
+model1
+```
+```{r}
+str(model1)
+```
+```{r}
+line_coef <- coef(model1)
+```
+
+
+```{r}
+plot(dist~speed,data=cars)
+abline(a=line_coef[1],b=line_coef[2],col="red")
+```
+```{r}
+plot(dist~speed,data=cars)
+abline(coef= coef(model1),col="red")
+```
+
+## dataframe
+
+```{r}
+
+df1=data.frame(
+  name=c("Вася","Коля","Петя"),
+  height=c(169,180,210)
+)
+df1
+
+```
+
+```{r}
+install.packages("tidyverse")
+
+```
+
+```{r}
+library(readxl)
+```
+
+```{r}
+prod=read_xlsx("prod.xlsx",sheet = "sep")
+```
+
+```{r}
+str(prod)
+```
+
+```{r}
+
+prod$total = prod$price*prod$amount
+prod
+
+```
+```{r}
+prod[2,4]
+```
+```{r}
+prod[2,]
+```
+```{r}
+prod[,2]
+```
