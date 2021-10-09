@@ -72,7 +72,19 @@ plot(dist~speed,data=cars)
 abline(coef= coef(model1),col="red")
 ```
 
+```{r pie}
+pie(c(russia=200, usa=300, other=100))
+```
+
+
+
 ## dataframe
+
+* array   vector, matrix , array, `dim(a) --> 1,2,3,4` элементы имеют один тип
+
+* list   -- элементы могут быть любого типа и сами быть списками массивами
+
+* dataframe list(vectors)
 
 ```{r}
 
@@ -84,10 +96,41 @@ df1
 
 ```
 
-```{r}
+
+
+```{r,message=FALSE}
 install.packages("tidyverse")
 
 ```
+
+### Пакеты в tidyverse
+
+```{r,message=FALSE}
+library(tidyverse)
+tidyverse_packages()
+```
+
+
+
+* readr   -- читать из текста
+* readxl  -- из excel
+* tibble  -- удобные dataframe
+* tidyr   -- реструкторизация
+* dplyr   -- группировки, сортировки, соединений таблиц как в SQL
+* forcat  -- для категорий (factors)
+* ggplot2  -- графика
+* magrittr -- оператор pipe 
+* stringr  -- текстовые данные
+* xml2     
+* json 
+* rvest    -- скачивать с вебсайтов
+* httr 
+* lubridate
+* purrr -- функциональное прогр 
+(вместо apply)
+
+
+
 
 ```{r}
 library(readxl)
