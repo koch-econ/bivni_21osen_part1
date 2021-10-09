@@ -91,8 +91,13 @@ pie(c(russia=200, usa=300, other=100))
 df1=data.frame(
   name=c("Вася","Коля","Петя"),
   height=c(169,180,210)
-)
+,stringsAsFactors = F)
 df1
+
+```
+```{r}
+
+str(df1)
 
 ```
 
@@ -159,3 +164,123 @@ prod[2,]
 ```{r}
 prod[,2]
 ```
+```{r}
+prod[,"price"]
+```
+```{r}
+prod$amount
+```
+```{r}
+prod["price"]
+```
+```{r}
+prod[["price"]]
+```
+```{r}
+prod[-2]
+```
+```{r}
+prod[c(2,3)]
+```
+
+
+####  Пример
+
+
+```{r}
+head(mtcars,4)
+```
+
+```{r}
+tail(mtcars,4)
+```
+автомобили с am==0 авт коробка
+
+```{r}
+mtcars$am==0
+```
+
+```{r}
+which(mtcars$am==0)
+```
+
+
+
+```{r}
+mtcars[which(mtcars$am==0),]
+```
+
+```{r}
+mtcars[mtcars$am==0,]
+```
+
+
+автом коробка и более 200 hp
+
+```{r}
+mtcars[mtcars$am==0& (mtcars$hp>200), ]
+```
+автом коробка или более 200 hp
+
+
+```{r}
+mtcars[mtcars$am==0 |mtcars$hp>200, ]
+```
+
+
+убрать те, автом коробка или более 200 hp
+
+
+```{r}
+mtcars[!(mtcars$am==0 |mtcars$hp>200), ]
+```
+
+## dplyr::filter()
+
+
+```{r}
+library(dplyr)
+
+```
+
+
+автом коробка и более 200 hp
+
+```{r}
+
+filter(mtcars, am==0 & hp>200)
+```
+
+
+автом коробка или более 200 hp
+
+```{r}
+
+filter(mtcars, am==0 |  hp>200)
+```
+результат пред команды упорядочить по возрастанию экономичности (mpg)
+
+
+```{r}
+
+arrange(filter(mtcars, am==0 |  hp>200),mpg)
+```
+результат пред команды упорядочить по убыванию экономичности (mpg)
+
+
+```{r}
+
+slice(arrange(filter(mtcars, am==0 |  hp>200),desc(mpg) ),1:9)
+```
+
+теперь при помощи pipe operator 
+отобрать нужные столбцы
+
+```{r}
+mtcars %>%
+  filter( am==0 |  hp>200) %>%
+  arrange(desc(mpg) ) %>%
+  slice(1:9) %>% 
+  select(mpg,hp,am,disp)
+```
+
